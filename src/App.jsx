@@ -1,57 +1,76 @@
-
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from './Component/header';
 import Footer from './Component/footer';
 import Nav from './Component/nav';
 
+import CategoriaPage from "./Component/CategoriaPage";
 import Main from './Component/main';
+import Banner from './Component/Banner';
 import Productos from './Component/productos';
-import Carrito from './Component/carrito';
-import Detalles from '../pages/detalles'
-import Electronica from '../pages/electronica';
+import Busqueda from './Component/Busqueda'
+import Detalles from '../pages/detalles';
 
- 
+import { AuthProvider } from './Component/AuthContext';
+import Login from './Component/Login';
+import Dashboard from './Component/Dashboard';
+import ProtectedRoute from './Component/ProtectedRoute';
+import { ProductosProvider, ProductosContext } from './Component/ProductosContext';
 
 function InicioPage() {
-  const [cart, setCart] = useState([]);
+  
 
-  const addToCart = (product) => {
-    const newProduct = {
-      product,
-      uniqueId: `${product.id}-${Date.now()}`,
-    };
-    setCart(prevCart => [...prevCart, newProduct]);
-  };
 
-  const removeFromCart = (uniqueId) => {
-    setCart(prevCart => prevCart.filter(item => item.uniqueId !== uniqueId));
-  };
+  const context = useContext(ProductosContext) || {};
+  const productos = context.productos || [];
+
 
   return (
     <>
       <Main />
       <div style={{ display: 'flex', gap: '20px', padding: '20px' }}>
-        <Productos addToCart={addToCart} />
-        <Carrito cartItems={cart} removeFromCart={removeFromCart} />
+    
+       <Productos showForm={false} productos={productos} />
+        
       </div>
     </>
   );
 }
 
+
 function App() {
   return (
-    <>
-      <Header />
-      <Nav />
-       <Routes>
-        <Route path="/" element={<InicioPage />} />
-        <Route path="/electronica" element={<Electronica />} />
-        <Route path="/producto/:id" element={<Detalles />} /> 
-      </Routes>
-      <Footer />
-    </>
+    <AuthProvider>
+      <ProductosProvider>
+        
+        <Nav />
+        <Header />
+        
+        <Routes>
+        
+          <Route path="/login" element={<Login />} />
+
+      
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+       
+          <Route path="/" element={<InicioPage />} />
+         <Route path="/producto/:id" element={<Detalles />} />
+          <Route path="/categoria/:categoria" element={<CategoriaPage />} />
+            <Route path="/buscar" element={<Busqueda />} />
+        </Routes>
+            <Banner/>
+        <Footer />
+      </ProductosProvider>
+    </AuthProvider>
   );
 }
 

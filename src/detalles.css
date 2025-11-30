@@ -1,0 +1,91 @@
+@media (max-width: 768px) {
+  .detalles-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detalles-imagen {
+    width: 100%;
+    height: auto; 
+    object-fit: contain;
+  }
+
+  .detalles-info {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+  }
+}
+
+.detalles-container {
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.detalles-imagen img {
+  width: 100%;       
+  max-width: 100%;    
+  height: auto;       
+  max-height: 80vh;   
+  object-fit: contain; 
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.detalles-info {
+  flex: 1 1 50%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: grey;
+}
+
+
+
+.detalles-beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.detalles-beneficio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalles-beneficio .fa-shield-alt {
+  color: #4CAF50;
+}
+
+.detalles-beneficio .fa-credit-card {
+  color: #FF9800;
+}
+
+.detalles-beneficio .fa-truck {
+  color: #2196F3;
+}
+
+.detalles-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  font-weight: bold;
+  
+ 
+  transition: background-color 0.3s;
+}
+
+.detalles-button:hover {
+  background-color: green;
+  color: white;
+}
