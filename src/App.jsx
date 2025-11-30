@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Header from './Component/header';
 import Footer from './Component/footer';
