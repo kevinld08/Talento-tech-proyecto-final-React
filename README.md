@@ -1,16 +1,57 @@
-# React + Vite
+# Tienda de Componentes PC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de e-commerce desarrollada con **React**, orientada a la venta de componentes informáticos. Incluye gestión de productos, carrito de compras, autenticación de usuarios y panel administrativo.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Catálogo de productos con búsqueda y filtrado por categorías.
+* Carrito de compras con Context API:
 
-## React Compiler
+  * Agregar, eliminar y modificar cantidades.
+  * Cálculo automático del total.
+* Sistema de autenticación con roles mediante AuthContext y LocalStorage.
+* Panel de administración:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * Crear productos.
+  * Editar productos.
+  * Eliminar productos.
+* Consumo de API para gestión dinámica del catálogo.
+* Diseño responsive utilizando Bootstrap.
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* JavaScript (ES6+)
+* React Router
+* Context API
+* Bootstrap
+* CSS
+* Fetch API
+* MockAPI
+
+## Instalación
+
+```bash
+npm install
+npm run dev
+```
+
+## Usuarios de prueba
+
+**Administrador**
+
+```
+Usuario: admin
+Contraseña: 1234
+```
+
+**Usuario**
+
+```
+Usuario: user
+Contraseña: 1234
+```
+
+## Descripción
+
+Proyecto enfocado en la implementación de una arquitectura frontend moderna con componentes reutilizables, manejo de estado global, consumo de APIs y experiencia de usuario responsive.
